@@ -27,10 +27,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable());
 
-        http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register").permitAll()  // Открытый доступ к этим URL
-                        .anyRequest().authenticated()); // Все остальные запросы требуют авторизации
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/login", "/register", "/auth/register").permitAll() // Открытые маршруты
+                .anyRequest().authenticated()); // Все остальные запросы требуют входа
 
 
         http.formLogin(form -> form

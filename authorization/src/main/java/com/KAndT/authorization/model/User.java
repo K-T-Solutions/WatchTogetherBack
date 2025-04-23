@@ -1,4 +1,4 @@
-package com.KAndT.authorization;
+package com.KAndT.authorization.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,4 +22,16 @@ public class User {
 
     @Column(nullable = false)
     private int role;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getRole() {
+        return role;
+    }
 }
